@@ -1,0 +1,45 @@
+{
+  "name": "pdf-editor-pro-desktop",
+  "productName": "PDF Editor Pro",
+  "version": "1.0.0",
+  "description": "Editor de PDFs de escritorio: unir, reordenar, dibujar, resaltar, escribir, firmar y exportar PDFs sin salir de tu ordenador.",
+  "main": "main.js",
+  "author": "melvinfranco99",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --linux AppImage"
+  },
+  "keywords": ["pdf", "editor", "firma", "desktop"],
+  "type": "commonjs",
+  "dependencies": {
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^3.11.174"
+  },
+  "devDependencies": {
+    "electron": "^44.9.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.melvinfranco99.pdfeditorpro",
+    "productName": "PDF Editor Pro",
+    "npmRebuild": false,
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "build/icon.png",
+      "!node_modules/canvas/**"
+    ],
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "linux": {
+      "target": ["AppImage"],
+      "icon": "build/icon.png",
+      "category": "Office",
+      "executableName": "pdf-editor-pro"
+    }
+  }
+}
